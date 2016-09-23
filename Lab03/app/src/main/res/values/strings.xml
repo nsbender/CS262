@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Lab03</string>
+    <string name="status">Invalid Password.</string>
+    <string name="secret_password">ilovehotdogs</string>
 </resources>
