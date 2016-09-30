@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Lab04</string>
+    <string name="about_text">This is the about page for Lab04</string>
+    <string name="main_text">Hello! This is the main page for Lab04</string>
+</resources>
