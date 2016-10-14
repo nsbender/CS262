@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.Console;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -158,10 +159,14 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < list.length(); i++) {
                 JSONObject day = list.getJSONObject(i);
                 JSONObject temperatures = day.getJSONObject("temp");
+                Double temp_min = temperatures.getDouble("min");
+                Double temp_max = temperatures.getDouble("max");
                 JSONObject weather = day.getJSONArray("weather").getJSONObject(0);
                 weatherList.add(new Weather(
                         day.getLong("dt"),
-                        weather.getString("description")));
+                        weather.getString("description"),
+                        temp_min,
+                        temp_max));
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -180,12 +185,14 @@ public class MainActivity extends AppCompatActivity {
             HashMap<String, String> map = new HashMap<String, String>();
             map.put("day", item.getDay());
             map.put("description", item.getSummary());
+            map.put("min", item.getTemp_min().toString());
+            map.put("max", item.getTemp_max().toString());
             data.add(map);
         }
 
         int resource = R.layout.weather_item;
-        String[] from = {"day", "description"};
-        int[] to = {R.id.dayTextView, R.id.summaryTextView};
+        String[] from = {"day", "description", "min", "max"};
+        int[] to = {R.id.dayTextView, R.id.summaryTextView, R.id.minTextView, R.id.maxTextView};
 
         SimpleAdapter adapter = new SimpleAdapter(this, data, resource, from, to);
         itemsListView.setAdapter(adapter);

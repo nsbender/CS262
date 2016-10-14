@@ -15,10 +15,13 @@ import java.util.TimeZone;
 public class Weather {
 
     private String day, summary;
+    private double temp_min, temp_max;
 
-    public Weather(long dt, String summary) {
+    public Weather(long dt, String summary, Double temp_min, Double temp_max) {
         this.day = convertTimeStampToDay(dt);
         this.summary = summary;
+        this.temp_min = temp_min;
+        this.temp_max = temp_max;
     }
 
     public String getDay() {
@@ -27,6 +30,8 @@ public class Weather {
     public String getSummary() {
         return summary;
     }
+    public Double getTemp_min() { return temp_min; }
+    public Double getTemp_max() { return temp_max; }
 
     private static String convertTimeStampToDay(long dt) {
         // Convert from datetime in milliseconds to calendar.
