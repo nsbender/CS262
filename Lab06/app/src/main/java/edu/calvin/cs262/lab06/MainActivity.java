@@ -31,11 +31,18 @@ import java.util.List;
 /**
  * Reads openweathermap's RESTful API for weather forecasts.
  * The code is based on Deitel's WeatherViewer (Chapter 17), simplified based on Murach's NewsReader (Chapter 10).
- * <p>
- * for CS 262, lab 6
  *
- * @author kvlinden
- * @version summer, 2016
+ * Question 1 - When an invalid city is entered, the app simply returns the city with the closest matching name
+ * Question 2 - The API key is the 'credentials' for accessing the site's API. If you have a free API key, you can only get certain JSON date,
+ *  whereas with a paid Key, you can get mode weather data.
+ * Question 3 - The full JSON response contains a JSON object with a cuty, coordinates, and a list containing a date, temperature info, and
+ *  basic weather descriptions as seen at (https://openweathermap.org/forecast5)
+ * Question 4 - The system takes the full JSON data, and extacts the 'list' object from it. From the list, it can pull all of the neccessary
+ *  data.
+ * Question 5 - The Weather class holds the data for each day in the forcast (e.g. Weather Summary, minimum temp, max temp,
+ *  and day of the week)
+ *
+ * @author kvlinden + nsb2
  */
 public class MainActivity extends AppCompatActivity {
 
