@@ -75,9 +75,9 @@ public class MainActivity extends AppCompatActivity {
         try {
             String urlString;
             if (entry.isEmpty()) {
-                urlString = "http://cs262.cs.calvin.edu:8089/monopoly/players/";
+                urlString = "http://153.106.75.63:9998/monopoly/players/";
             } else {
-                urlString = "http://cs262.cs.calvin.edu:8089/monopoly/player/" + entry;
+                urlString = "http://153.106.75.63:9998/monopoly/player/" + entry;
             }
             return new URL(urlString);
         } catch (Exception e) {
